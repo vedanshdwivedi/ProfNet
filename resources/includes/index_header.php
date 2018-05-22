@@ -3,6 +3,8 @@
 	
 	if(isset($_SESSION["username"])){
 		$userLoggedIn = $_SESSION["username"];
+		$query = query("SELECT * FROM user_login WHERE username='{$userLoggedIn}'");
+		$user = fetch($query);
 	}else{
 		redirect("register.php");
 	}
@@ -18,10 +20,12 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
 	<!--CSS-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-<!-- Example single danger button -->
+<!-- Example single danger button 
 <div class="btn-group">
   <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Action
@@ -33,4 +37,34 @@
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="logout.php">Logout</a>
   </div>
+</div>
+-->
+
+<div class="top_bar">
+	<div class="logo">
+		<a href="index.php">ProfNet</a>
+	</div>
+	<nav>
+		<a href="#">
+			<?php echo $user['first_name']; ?>
+		</a>
+		<a href="index.php">
+			<i class="fa fa-home fa-lg"></i>
+		</a>
+		<a href="#">
+		<i class="fa fa-envelope fa-lg"></i>
+		</a>
+		<a href="#">
+			<i class="fa fa-bell fa-lg"></i>
+		</a>
+		<a href="#">
+			<i class="fa fa-users fa-lg"></i>
+		</a>
+		<a href="#">
+			<i class="fa fa-cog fa-lg"></i>
+		</a>
+		<a href="logout.php">
+			<i class="fas fa-sign-out-alt fa-lg"></i>
+		</a>
+	</nav>
 </div>

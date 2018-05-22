@@ -1,0 +1,58 @@
+@font-face {
+	font-family: 'Poppins-Light';
+	src:("../fonts/Poppins-Light.otf");
+}
+
+@font-face {
+	font-family: 'Poppins-Bold';
+	src:("../fonts/Poppins-SemiBold.otf");
+}
+@font-face {
+	font-family: 'Bellota-Bold';
+	src:("../fonts/Bellota-BoldItalic.otf");
+}
+
+body{
+	line-height: 19px;
+}
+
+.top_bar{
+	width: 100%;
+	height: 40px;
+	background-color: #20aae5;
+	border-bottom: 0.25em solid #1894ca;
+	min-width: 1050px;
+	margin: 0 0 10px 0;
+	display: inline-flex;
+}
+
+.logo a{
+	font-family: 'Bellota-Bold',arial;
+	margin-left: 10px;
+	font-size: 150%;
+	position: relative;
+	top: 9px;
+}
+
+a:hover{
+	text-decoration: none;
+}
+
+nav a{
+	position: relative;
+	color: #fff;
+	text-decoration: none;
+	font-size: 17px;
+}
+
+nav{
+	float: right;
+	right: 1px;
+	position: absolute;
+	margin: 10px;
+}
+
+nav a:hover{
+	border-bottom: 7px solid #e67e22;
+	color:#fff;
+}

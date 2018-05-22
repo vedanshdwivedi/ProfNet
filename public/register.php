@@ -6,6 +6,18 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="js/register.js"></script>
 <body>
+<?php
+	if(isset($_POST["reg_submit"])){
+		echo '
+			<script>
+			$(document).ready(function(){
+				$("#first").hide();
+				$("$second").show();
+			});
+			</script>
+		';
+	}
+?>
 <div class="wrapper">
 	<div class="login_box">
     <div class="login_header">
@@ -45,7 +57,7 @@
 
 				<input type="submit" name="reg_submit" value="Register">
 				<br>
-				<a href="#" id="signin" class="signin">Already have an Account? Sign in Here!</a>
+				<a href="#" id="signin" class="signin">Already have an Account? Sign in Here!</a><br>
 			</form>
 		</div>
 	</div>

@@ -117,5 +117,18 @@ function def_pic(){
 	return $a;
 }
 
+function get_user_by_id($value){
+	global $connection;
+	$query = query("SELECT * FROM user_login WHERE id={$value};");
+	confirm($query);
+    if(mysqli_num_rows($query) == 1)
+    {
+    	//$user = fetch($query);
+    	return $user;
+    }else{
+    	return false;
+    }
+}
+
 
 ?>

@@ -3,8 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>ProfNet</title>
-  <!--link rel="stylesheet" type="text/css" href="css/register_style.css"-->
+  <title>Welcome to ProfNet</title>
+  
   
 </head>
 

@@ -3,6 +3,7 @@
   ob_start(); //turns on infinite output buffering, used for redirecting pages
   session_start();
   //session_destroy();  /*used to reset sessions (uncomment and execute)*/
+  $timezone = date_default_timezone_set('Asia/Kolkata');
   
 
   defined("DB_HOST") ? null : define("DB_HOST", "localhost");

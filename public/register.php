@@ -3,6 +3,7 @@
 <?php require_once("../resources/reg_handle.php"); ?>
 <?php require_once("../resources/log_handle.php"); ?>
 <link rel="stylesheet" type="text/css" href="css/register_style.css">
+<link rel="stylesheet" href="normalize.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="js/register.js"></script>
 <body>
@@ -15,12 +16,12 @@
 	
     	<div id="first">
 	       <!--login form-->
-		   <form action="register.php" method="post">
-			      <input type="email" name="log_email" autocomplete="off" placeholder="Email" required>
+		   <form class="form_code" action="register.php" method="post">
+			      <input class="post_code1" type="email" name="log_email" autocomplete="off" placeholder="Email" required>
 			      <br>
-			      <input type="password" name="log_password" autocomplete="off" placeholder="Password" required>
+			      <input class="post_code2" type="password" name="log_password" autocomplete="off" placeholder="Password" required>
 			      <br>
-			      <input type="submit" name="log_submit" value="Login">
+			      <input class="button" type="submit" name="log_submit" value="Login">
 			      <br>
 			      <a href="#" id="signup" class="signup">Need an Account? Register Here!</a>
 		   </form>

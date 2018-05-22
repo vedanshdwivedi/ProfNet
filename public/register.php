@@ -6,6 +6,11 @@
 <body>
 <div class="wrapper">
 	<div class="login_box">
+    <div class="login_header">
+    	<h1>ProfNet</h1>
+    	Login or Signup below!
+    </div>
+	
 
        <!--login form-->
 	   <form action="register.php" method="post">

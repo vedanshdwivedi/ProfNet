@@ -19,7 +19,7 @@
           </div>
           <div class="form-group">
             <label for="user_password" class="control-label">Password:</label>
-            <input type="password" id="log_password" class="form-control" name="user_password"/>
+            <input type="password" id="log_password" class="form-control" name="log_password"/>
           </div>
           <!--div class="text-center pad-top-20">
             <p>Have you forgotten your<br><a href="#" class="link"><strong>username</strong></a> or <a href="#" class="link"><strong>password</strong></a>?</p>

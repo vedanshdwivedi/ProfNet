@@ -1,66 +1,76 @@
-<?php require_once("../resources/header.php"); ?>
 <?php require_once("../resources/config.php"); ?>
-<?php require_once("../resources/reg_handle.php"); ?>
+<?php require_once("../resources/header.php"); ?>
 <?php require_once("../resources/log_handle.php"); ?>
-<link rel="stylesheet" type="text/css" href="css/register_style.css">
-<link rel="stylesheet" href="normalize.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="js/register.js"></script>
-<body>
-<?php
-	if(isset($_POST["reg_submit"])){
-		echo '
-			<script>
-			$(document).ready(function(){
-				$("#first").hide();
-				$("$second").show();
-			});
-			</script>
-		';
-	}
-?>
-<div class="wrapper">
-	<div class="login_box">
-    <div class="login_header">
-    	<h1>ProfNet</h1>
-    	Login or Signup below!
-    </div>
+<?php require_once("../resources/reg_handle.php"); ?>
 	
-    	<div id="first">
-	       <!--login form-->
-		   <form class="form_code" action="register.php" method="post">
-			      <input class="post_code1" type="email" name="log_email" autocomplete="off" placeholder="Email" required>
-			      <br>
-			      <input class="post_code2" type="password" name="log_password" autocomplete="off" placeholder="Password" required>
-			      <br>
-			      <input class="button" type="submit" name="log_submit" value="Login">
-			      <br>
-			      <a href="#" id="signup" class="signup">Need an Account? Register Here!</a>
-		   </form>
-	   </div>
-	   <br><br>
+<div id="dialog" class="dialog dialog-effect-in">
+  <div class="dialog-front">
+    <div class="dialog-content">
 
-	   <div id="second">
-		   <!--signup form-->
-			<form action="register.php" method="post">
-				<input type="text" name="fname" autocomplete="off" placeholder="First Name" required>
-				<br>
-				<input type="text" name="lname" autocomplete="off" placeholder="Last Name" required>
-				<br>
-				<input type="email" name="email" autocomplete="off" placeholder="Email" required>
-				<br>
-				<input type="email" name="email2" autocomplete="off" placeholder="Confirm Email" required>
-				<br>
-				<input type="password" name="password" autocomplete="off" placeholder="Password" required>
-				<br>
-				<input type="password" name="password2" autocomplete="off" placeholder="Confirm Password" required>
-				<br>
 
-				<input type="submit" name="reg_submit" value="Register">
-				<br>
-				<a href="#" id="signin" class="signin">Already have an Account? Sign in Here!</a><br>
-			</form>
-		</div>
-	</div>
+
+    <!--LOGIN FORM-->
+      <form id="login_form" class="dialog-form" action="register.php" method="POST">
+        <fieldset>
+          <legend>Log in</legend>
+          <div class="form-group">
+            <label for="user_username" class="control-label">Email:</label>
+            <input type="text" id="user_username" class="form-control" name="log_email" autofocus/>
+          </div>
+          <div class="form-group">
+            <label for="user_password" class="control-label">Password:</label>
+            <input type="password" id="log_password" class="form-control" name="user_password"/>
+          </div>
+          <!--div class="text-center pad-top-20">
+            <p>Have you forgotten your<br><a href="#" class="link"><strong>username</strong></a> or <a href="#" class="link"><strong>password</strong></a>?</p>
+          </div-->
+          <div class="pad-top-20 pad-btm-20">
+            <input type="submit" class="btn btn-default btn-block btn-lg" value="Continue" name="log_submit">
+          </div>
+          <div class="text-center">
+            <p>Do you wish to register<br> for <a href="#" class="link user-actions"><strong>a new account</strong></a>?</p>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  <div class="dialog-back">
+    <div class="dialog-content">
+    <!--REGISTER FORM-->
+
+
+      <form id="register_form" class="dialog-form" action="register.php" method="POST">
+        <fieldset>
+          <legend>Register</legend>
+          <div class="form-group">
+            <label for="user_username" class="control-label">First Name:</label>
+            <input type="text" id="user_username" class="form-control" name="fname"/> 
+          </div>
+		  <div class="form-group">
+            <label for="user_username" class="control-label">Last Name:</label>
+            <input type="text" id="user_username" class="form-control" name="lname"/> 
+          </div>
+		  <div class="form-group">
+            <label for="user_username" class="control-label">Email:</label>
+            <input type="email" id="user_username" class="form-control" name="email"/> 
+          </div>
+          <div class="form-group">
+            <label for="user_password" class="control-label">Password:</label>
+            <input type="password" id="user_password" class="form-control" name="password"/>
+          </div>
+          <div class="form-group">
+            <label for="user_cnf_password" class="control-label">Confirm password:</label>
+            <input type="password" id="user_cnf_password" class="form-control" name="password2"/>
+          </div>
+          <div class="pad-btm-20">
+            <input type="submit" class="btn btn-default btn-block btn-lg" value="Sign Up" name="reg_submit" />
+          </div>
+          <div class="text-center">
+            <p>Return to <a href="#" class="link user-actions"><strong>log in page</strong></a>?</p>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
 </div>
 <?php require_once("../resources/footer.php"); ?>

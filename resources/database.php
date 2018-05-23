@@ -19,6 +19,42 @@
 	//echo $sql1;
 	$query = query($sql1);
 	confirm($query);
+
+	$sql2 = "CREATE TABLE IF NOT EXISTS posts(
+		id INT(11) PRIMARY KEY AUTO_INCREMENT,
+		body TEXT,
+		added_by VARCHAR(60),
+		user_to VARCHAR(60),
+		date_added DATETIME,
+		user_closed VARCHAR(3),
+		deleted VARCHAR(3),
+		likes INT(11)
+	);";
+
+	$query = query($sql2);
+	confirm($query);
+
+	$sql3 = "CREATE TABLE IF NOT EXISTS post_comments(
+		id INT(11) PRIMARY KEY AUTO_INCREMENT,
+		post_body TEXT,
+		posted_by VARCHAR(60),
+		posted_to VARCHAR(60),
+		date_added DATETIME,
+		removed VARCHAR(3),
+		post_id INT(11)
+	);";
+
+	$query = query($sql3);
+	confirm($query);
+
+	$sql4 = "CREATE TABLE IF NOT EXISTS likes(
+		id INT(11) PRIMARY KEY AUTO_INCREMENT,
+		username VARCHAR(60),
+		post_id INT(11)
+	);";
+
+	$query = query($sql4);
+	confirm($query);
     
 
 

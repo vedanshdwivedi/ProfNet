@@ -45,7 +45,7 @@
 		<a href="index.php">ProfNet</a>
 	</div>
 	<nav>
-		<a href="#">
+		<a href="<?php echo $userLoggedIn; ?>">
 			<?php echo $user['first_name']; ?>
 		</a>
 		<a href="index.php">
@@ -68,3 +68,4 @@
 		</a>
 	</nav>
 </div>
+<div class="wrapper">

@@ -43,7 +43,7 @@ function confirm($result)
 function escape_string($string)
 {
 	global $connection;
-	return mysqli_real_escape_string($connection,$string);
+	return mysqli_real_escape_string($connection,strip_tags($string));
 }
 
 function fetch($result){

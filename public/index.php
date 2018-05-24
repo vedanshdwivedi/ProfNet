@@ -30,8 +30,8 @@ if(isset($_POST["post"])){
 			<hr>
 		</form>
 		<?php
-			$user_obj = new User($connection, $userLoggedIn);
-			echo $user_obj->getFirstAndLastName();
+			$post = new Post($connection, $userLoggedIn);
+			$post->loadPostsFriends();
 		?>
 	</div>
 </div><!--wrapper div-->

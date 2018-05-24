@@ -32,13 +32,13 @@ body{
 	*/
     /* FB Theme */
 	width: 100%;
-    height: 40px;
-    background-color: #4267B2;
+    height: 60px;
+    background-color:  #4267B2;
     border-bottom: 0.25em solid #3b5486;
     min-width: 1050px;
     margin: 0 0 10px 0;
     display: inline-flex;
-    position: fixed;
+    position: absolute;
     z-index: 10
 }
 
@@ -46,10 +46,11 @@ body{
 
 .logo a{
 	font-family: 'Bellota-Bold',arial;
-	margin-left: 10px;
-	font-size: 150%;
+	color: white;
+	margin-left: 5px;
+	top: 20px;
+	font-size: 250%;
 	position: relative;
-	top: 9px;
 }
 
 a:hover{
@@ -97,6 +98,13 @@ nav a:hover{
 	width: 270px;
 	float: left;
 	margin-bottom: 20px;
+	margin-top: 30px;
+	border-top-left-radius: 1rem;
+	border-top-right-radius: 0rem;
+	border-bottom-left-radius: 1rem;
+	border-bottom-right-radius: 0rem;
+	border-right-width: 5px;
+	border-right-color: blue;
 }
 
 .user_details_left_right{
@@ -108,9 +116,8 @@ nav a:hover{
 
 .user_details img{
 	height: 125px;
-	border-radius: 5px;
+	border-radius: 100px;
 	margin-right: 5px;
-
 }
 
 .main_column{
@@ -118,6 +125,13 @@ nav a:hover{
 	width: 70%;
 	z-index: -1;
 	min-height: 160px;
+	margin-top: 30px;
+	border-top-left-radius: 0rem;
+	border-top-right-radius: 1rem;
+	border-bottom-left-radius: 0rem;
+	border-bottom-right-radius: 1rem;
+	border-left-width: 5px;
+	border-left-color: blue;
 }
 
 .post_form{
@@ -129,7 +143,7 @@ nav a:hover{
 	height: 60px;
 	border-radius: 3px;
 	margin-right: 5px;
-	border: 1px solid #D3D3D3
+	border: 1px solid #D3D3D3;
 	font-size: 12px;
 	padding: 5px;
 }
@@ -140,9 +154,10 @@ textarea:focus{
 
 .post_form input[type="submit"] {
 	width: 11%;
-	height: 60px;
+	margin-top:5px;
+	height: 40px;
 	border: none;
-	border-radius: 3px;
+	border-radius: .9rem;
 	/* #4267B2 
 	Original
 	background-color: #3498db;
@@ -153,8 +168,11 @@ textarea:focus{
 	text-shadow: #73B6E2 0.5px 0.5px 0;
 	font-size: 90%;
 	position: absolute;
+	border: line;
+	border-color: black;
 	outline: 0;
 	margin: 0; 
+	padding: .7rem;
 }
 
 .post_form input[type="submit"]:active{
@@ -174,5 +192,5 @@ textarea:focus{
 }
 
 .post_profile_pic img {
-	border-radius: 5px;
+	border-radius: 100px;
 }

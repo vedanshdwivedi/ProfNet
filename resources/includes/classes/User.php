@@ -7,6 +7,9 @@ class User {
 		$this->con = $con;
 		$user_details_query = mysqli_query($con, "SELECT * FROM user_login WHERE username='$user'");
 		$this->user = mysqli_fetch_array($user_details_query);
+		$query = mysqli_query($this->con,"SELECT * FROM posts WHERE added_by = '{$this->user["username"]}'");
+		$i = mysqli_num_rows($query);
+		$query = mysqli_query($this->con,"UPDATE user_login SET num_posts = {$i} WHERE username='{$this->user["username"]}'");
 	}
 
 	public function getUsername() {

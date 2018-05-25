@@ -1,6 +1,7 @@
 <?php require_once("../resources/includes/index_header.php"); 
 require_once("../resources/includes/classes/User.php"); 
 require_once("../resources/includes/classes/Post.php"); 
+//include("../resources/ajax_load_posts.php");
 display_message();
 
 if(isset($_POST["post"])){
@@ -29,11 +30,59 @@ if(isset($_POST["post"])){
 			<input type="submit" name="post" id="post_button" value="Post">
 			<hr>
 		</form>
-		<?php
-			$post = new Post($connection, $userLoggedIn);
-			$post->loadPostsFriends();
-		?>
+		
+		<div class="posts_area"></div>
+		<img id="loading" src="images/icons/loading.gif">
+
 	</div>
+	<script>
+		var userLoggedIn = '<?php echo $userLoggedIn;  ?>';
+		$(document).ready(function(){
+			$("#loading").show();
+			//Original ajax request for loading first posts
+			$.ajax({
+				url: "../resources/includes/ajax_load_posts.php",
+				type: "POST",
+				data: "page=1&userLoggedIn="+userLoggedIn,
+				cache: false,
+
+
+				success: function(data){
+					$('#loading').hide();
+					$('.posts_area').html(data);
+				}
+			});
+
+			$(window).scroll(function(){
+				var height = $('.posts_area').height(); //div containing posts
+				var scroll_top = $(this).scrollTop();
+				var page = $('.posts_area').find('.nextPage').val();
+				var noMorePosts = $('.posts_area').find('.noMorePosts').val();
+
+				if((document.body.scrollHeight == document.body.scrollTop + window.innerHeight) && noMorePosts == 'false'){
+					$("loading").show();
+						var ajaxReq = $.ajax({
+						url: "../resources/includes/ajax_load_posts.php",
+						type: "POST",
+						data: "page="+ page +"&userLoggedIn=" + userLoggedIn,
+						cache: false,
+
+
+						success: function(response){
+							//Removes current .next_page
+							$('.posts_area').find('.nextPage').remove();
+							$('.posts_area').find('.noMorePosts').remove();
+
+
+							$('#loading').hide();
+							$('.posts_area').append(response);
+						}
+					});
+				} // End if
+				return false;
+			});//$(window).scroll(function){});
+		});
+	</script>
 </div><!--wrapper div-->
 </body>
 </html>

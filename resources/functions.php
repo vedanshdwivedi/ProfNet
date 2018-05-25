@@ -29,7 +29,7 @@ function query($sql)
 {
 	global $connection;
 	return mysqli_query($connection,$sql);
-	//echo "<br>".$sql;
+	echo "<br>".$sql;
 }
 
 function confirm($result)
@@ -117,6 +117,8 @@ function def_pic(){
 	return $a;
 }
 
+
+
 function get_user_by_id($value){
 	global $connection;
 	$query = query("SELECT * FROM user_login WHERE id={$value};");
@@ -128,6 +130,15 @@ function get_user_by_id($value){
     }else{
     	return false;
     }
+}
+
+function num_post($id){
+	global $connection;
+	$user = get_user_by_id($id);
+	$query = query("SELECT * FROM posts WHERE added_by='{$user["username"]}'");
+	confirm($query);
+	$i = mysqli_num_rows($query);
+	$query = query("UPDATE user_login SET num_post = {$i} WHERE username = '{$username}'");
 }
 
 

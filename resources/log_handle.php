@@ -15,6 +15,7 @@
 				set_message("Login Successful<br>"."Welcome ".$row["username"]);
 				$_SESSION["username"] = $row["username"];
 				$_SESSION["uid"] = $row["id"];
+				num_post($row["id"]);
 				redirect("index.php");
 			}
 		}

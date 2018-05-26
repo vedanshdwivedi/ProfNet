@@ -1,88 +1,110 @@
-<?php require_once("../resources/includes/index_header.php"); 
-require_once("../resources/includes/classes/User.php"); 
-require_once("../resources/includes/classes/Post.php"); 
-//include("../resources/ajax_load_posts.php");
-display_message();
+<?php 
+include("../resources/includes/index_header.php");
+include("../resources/includes/classes/User.php");
+include("../resources/includes/classes/Post.php");
 
-if(isset($_POST["post"])){
-	$post = new Post($connection, $userLoggedIn);
-	$post->submitPost($_POST["post_text"],"none");
+
+if(isset($_POST['post'])){
+	$post = new Post($con, $userLoggedIn);
+	$post->submitPost($_POST['post_text'], 'none');
 }
 
-?>
+
+ ?>
 	<div class="user_details column">
-			<a href="<?php echo $userLoggedIn; ?>"><img src="<?php echo $user["profile_pic"]; ?>"></a>
-			<div class="user_details_left_right">
+		<a href="<?php echo $userLoggedIn; ?>">  <img src="<?php echo $user['profile_pic']; ?>"> </a>
+
+		<div class="user_details_left_right">
 			<a href="<?php echo $userLoggedIn; ?>">
-			<?php
-				echo $user["first_name"]." ".$user["last_name"];
-			?></a>
+			<?php 
+			echo $user['first_name'] . " " . $user['last_name'];
+
+			 ?>
+			</a>
 			<br>
-			<?php
-				echo "Posts: ".$user["num_posts"]."<br>";
-				echo "Likes: ".$user["num_likes"];
+			<?php echo "Posts: " . $user['num_posts']. "<br>"; 
+			echo "Likes: " . $user['num_likes'];
+
 			?>
 		</div>
+
 	</div>
+
 	<div class="main_column column">
-		<form class="post_form" action="index.php" method="post">
-			<textarea name="post_text" id="post_text" placeholder="Hey, what's next now?"></textarea>
+		<form class="post_form" action="index.php" method="POST">
+			<textarea name="post_text" id="post_text" placeholder="Hey, What's next?"></textarea>
 			<input type="submit" name="post" id="post_button" value="Post">
 			<hr>
+
 		</form>
-		
+
 		<div class="posts_area"></div>
 		<img id="loading" src="images/icons/loading.gif">
 
+
 	</div>
+
 	<script>
-		var userLoggedIn = '<?php echo $userLoggedIn;  ?>';
-		$(document).ready(function(){
-			$("#loading").show();
-			//Original ajax request for loading first posts
-			$.ajax({
-				url: "../resources/includes/ajax_load_posts.php",
-				type: "POST",
-				data: "page=1&userLoggedIn="+userLoggedIn,
-				cache: false,
+	var userLoggedIn = '<?php echo $userLoggedIn; ?>';
 
+	$(document).ready(function() {
 
-				success: function(data){
-					$('#loading').hide();
-					$('.posts_area').html(data);
-				}
-			});
+		$('#loading').show();
 
-			$(window).scroll(function(){
-				var height = $('.posts_area').height(); //div containing posts
-				var scroll_top = $(this).scrollTop();
-				var page = $('.posts_area').find('.nextPage').val();
-				var noMorePosts = $('.posts_area').find('.noMorePosts').val();
+		//Original ajax request for loading first posts 
+		$.ajax({
+			url: "../resources/includes/ajax_load_posts.php",
+			type: "POST",
+			data: "page=1&userLoggedIn=" + userLoggedIn,
+			cache:false,
 
-				if((document.body.scrollHeight == document.body.scrollTop + window.innerHeight) && noMorePosts == 'false'){
-					$("loading").show();
-						var ajaxReq = $.ajax({
-						url: "../resources/includes/ajax_load_posts.php",
-						type: "POST",
-						data: "page="+ page +"&userLoggedIn=" + userLoggedIn,
-						cache: false,
-
-
-						success: function(response){
-							//Removes current .next_page
-							$('.posts_area').find('.nextPage').remove();
-							$('.posts_area').find('.noMorePosts').remove();
-
-
-							$('#loading').hide();
-							$('.posts_area').append(response);
-						}
-					});
-				} // End if
-				return false;
-			});//$(window).scroll(function){});
+			success: function(data) {
+				$('#loading').hide();
+				$('.posts_area').html(data);
+			}
 		});
+
+		$(window).scroll(function() {
+			var height = $('.posts_area').height(); //Div containing posts
+			var scroll_top = $(this).scrollTop();
+			var page = $('.posts_area').find('.nextPage').val();
+			var noMorePosts = $('.posts_area').find('.noMorePosts').val();
+			//$('#loading').show();
+
+
+			if ((document.body.scrollHeight == (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop) + window.innerHeight) && noMorePosts == 'false') {
+				$('#loading').show();
+
+
+				var ajaxReq = $.ajax({
+					url: "../resources/includes/ajax_load_posts.php",
+					type: "POST",
+					data: "page=" + page + "&userLoggedIn=" + userLoggedIn,
+					cache:false,
+
+					success: function(response) {
+						$('.posts_area').find('.nextPage').remove(); //Removes current .nextpage 
+						$('.posts_area').find('.noMorePosts').remove(); //Removes current .nextpage 
+
+						$('#loading').hide();
+						$('.posts_area').append(response);
+					}
+				});
+
+			} //End if 
+
+			return false;
+
+		}); //End (window).scroll(function())
+
+
+	});
+
 	</script>
-</div><!--wrapper div-->
+
+
+
+
+	</div>
 </body>
 </html>

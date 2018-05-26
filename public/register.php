@@ -2,6 +2,10 @@
 <?php require_once("../resources/header.php"); ?>
 <?php require_once("../resources/log_handle.php"); ?>
 <?php require_once("../resources/reg_handle.php"); ?>
+
+<div class="images"> 
+     <img src="css/profnet.jpg" class="logo"/> 
+</div>
 	
 <div id="dialog" class="dialog dialog-effect-in">
   <div class="dialog-front">

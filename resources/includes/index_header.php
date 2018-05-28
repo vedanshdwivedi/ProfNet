@@ -28,9 +28,9 @@
 <body>
 
 <div class="top_bar">
-	<div class="logo">
-		<a href="index.php">ProfNet</a>
-	</div>
+    <div class="images"> 
+         <img src="images/profnet.jpg" class="logo"/> 
+    </div>
 	<nav>
 		<a href="<?php echo $userLoggedIn; ?>" style="font-size: 24px;">
 			<?php echo $user['first_name']; ?>

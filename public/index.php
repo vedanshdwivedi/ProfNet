@@ -71,8 +71,9 @@ if(isset($_POST['post'])){
 			var noMorePosts = $('.posts_area').find('.noMorePosts').val();
 			//$('#loading').show();
 
-
-			if ((document.body.scrollHeight == (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop) + window.innerHeight) && noMorePosts == 'false') {
+            
+			if((document.body.scrollHeight == (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop) + window.innerHeight) && noMorePosts == 'false') {
+				console.log("reached bottom");
 				$('#loading').show();
 
 

@@ -29,29 +29,29 @@
 
 <div class="top_bar">
     <div class="images"> 
-         <img src="images/profnet.jpg" class="logo"/> 
+         <a href="index.php"><img src="images/profnet.jpg" class="logo"/> </a>
     </div>
 	<nav>
-		<a href="<?php echo $userLoggedIn; ?>">
+		<a href="<?php echo $userLoggedIn; ?>" style="font-size: 24px;">
 			<?php echo $user['first_name']; ?>
 		</a>
 		<a href="index.php">
-			<i class="fa fa-home fa-lg"></i>
+			<i class="fa fa-home fa-2x"></i>
 		</a>
 		<a href="#">
-		<i class="fa fa-envelope fa-lg"></i>
+		<i class="fa fa-envelope fa-2x"></i>
 		</a>
 		<a href="#">
-			<i class="fa fa-bell fa-lg"></i>
+			<i class="fa fa-bell fa-2x"></i>
 		</a>
 		<a href="#">
-			<i class="fa fa-users fa-lg"></i>
+			<i class="fa fa-users fa-2x"></i>
 		</a>
 		<a href="#">
-			<i class="fa fa-cog fa-lg"></i>
+			<i class="fa fa-cog fa-2x"></i>
 		</a>
 		<a href="logout.php">
-			<i class="fas fa-sign-out-alt fa-lg"></i>
+			<i class="fas fa-sign-out-alt fa-2x"></i>
 		</a>
 	</nav>
 </div>

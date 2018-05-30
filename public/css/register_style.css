@@ -58,7 +58,7 @@ body {
   padding: 0;
   color: #fff;
   background-color: white;
-  background: url(img1.jpg);
+  background: url("../images/img1.jpg");
   background-size: cover;
   height: 100vh;
   font-size: 14px;

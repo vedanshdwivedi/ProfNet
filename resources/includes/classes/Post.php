@@ -164,7 +164,7 @@ class Post {
 
 			if($count > $limit)
 				$str .= "<input type='hidden' class='nextPage' value='". ($page + 1) ."'>
-						<input type='hidden' class='noMorePosts value='false'>";
+						<input type='hidden' class='noMorePosts' value='false'>";
 			else
 				$str .= "<input type='hidden' class='noMorePosts value='true'><p style='text-align: center;'> No More Posts to show!</p>";
 

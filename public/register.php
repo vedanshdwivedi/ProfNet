@@ -4,7 +4,7 @@
 <?php require_once("../resources/reg_handle.php"); ?>
 
 <div class="images"> 
-     <img src="images/profnet.jpg" class="logo"/> 
+     <img src="css/profnet.jpg" class="logo"/> 
 </div>
 	
 <div id="dialog" class="dialog dialog-effect-in">

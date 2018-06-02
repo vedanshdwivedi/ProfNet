@@ -43,7 +43,22 @@ class User {
 
 
 
+	public function isFriend($username_to_check){
+		$usernameComa = ",".$username_to_check.",";
+		if((strstr($this->user['friend_array'], $usernameComa)) || $username_to_check == $this->user['username']){
+			return true;
+		}else{
+			return false;
+		}
+		
+	}
+
+
+
 
 }
+
+
+
 
 ?>

@@ -189,3 +189,11 @@ textarea:focus{
 .post_profile_pic img {
 	border-radius: 100px;
 }
+
+.fa, .fas {
+    font-weight: 900;
+    margin-top: 5px;
+    margin-right: 1px;
+}
+
+

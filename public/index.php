@@ -70,10 +70,10 @@ if(isset($_POST['post'])){
 			var page = $('.posts_area').find('.nextPage').val();
 			var noMorePosts = $('.posts_area').find('.noMorePosts').val();
 			//$('#loading').show();
+			console.log(page);
 
             
 			if((document.body.scrollHeight == (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop) + window.innerHeight) && noMorePosts == 'false') {
-				console.log("reached bottom");
 				$('#loading').show();
 
 

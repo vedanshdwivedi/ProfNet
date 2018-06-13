@@ -2,6 +2,13 @@
 <html>
 <head>
 	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<style type="text/css">
+		*{
+			font-size: 12;
+			font-family: Arial, Helvetica, Sans-serif;
+		}
+	</style>
 </head>
 <body>
 	<?php 
@@ -129,6 +136,8 @@
 
 
 			}
+		}else{
+			echo "<center><br><br>No Comments to Show!</center>";
 		}
 	?>
 

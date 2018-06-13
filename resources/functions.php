@@ -29,7 +29,7 @@ function query($sql)
 {
 	global $connection;
 	return mysqli_query($connection,$sql);
-	echo "<br>".$sql;
+	//echo "<br>".$sql;
 }
 
 function confirm($result)

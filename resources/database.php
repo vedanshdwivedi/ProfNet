@@ -34,7 +34,10 @@
 	$query = query($sql2);
 	confirm($query);
 
-	$sql3 = "CREATE TABLE IF NOT EXISTS post_comments(
+	$query = query("DROP TABLE IF EXISTS post_comments;");
+	confirm($query);
+
+	$sql3 = "CREATE TABLE IF NOT EXISTS comments(
 		id INT(11) PRIMARY KEY AUTO_INCREMENT,
 		post_body TEXT,
 		posted_by VARCHAR(60),

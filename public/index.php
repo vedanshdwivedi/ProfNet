@@ -5,7 +5,7 @@ include("../resources/includes/classes/Post.php");
 
 
 if(isset($_POST['post'])){
-	$post = new Post($con, $userLoggedIn);
+	$post = new Post($connection, $userLoggedIn);
 	$post->submitPost($_POST['post_text'], 'none');
 }
 

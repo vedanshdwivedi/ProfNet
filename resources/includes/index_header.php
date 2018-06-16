@@ -47,7 +47,7 @@
 		<a href="#">
 			<i class="fa fa-users fa-2x"></i>
 		</a>
-		<a href="#">
+		<a href="../About Us/about.html">
 			<i class="fa fa-cog fa-2x"></i>
 		</a>
 		<a href="logout.php">

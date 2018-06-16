@@ -41,9 +41,7 @@ class User {
 			return false;
 	}
 
-
-
-	public function isFriend($username_to_check){
+    public function isFriend($username_to_check){
 		$usernameComa = ",".$username_to_check.",";
 		if((strstr($this->user['friend_array'], $usernameComa)) || $username_to_check == $this->user['username']){
 			return true;
@@ -53,12 +51,31 @@ class User {
 		
 	}
 
-
 	public function getProfilePic() {
 		$username = $this->user['username'];
 		$query = mysqli_query($this->con, "SELECT profile_pic FROM user_login WHERE username='$username'");
 		$row = mysqli_fetch_array($query);
 		return $row['profile_pic'];
+	}
+
+	public function didReceiveRequest($user_to){
+		$user_from = $this->user['username'];
+		$check_request_query = mysqli_query($this->con,"SELECT * FROM friend_requests WHERE user_to = '$user_to' AND user_from='$user_from'");
+		if(mysqli_num_rows($check_request_query) > 0){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	public function didSendRequest($user_from){
+		$user_to = $this->user['username'];
+		$check_request_query = mysqli_query($this->con,"SELECT * FROM friend_requests WHERE user_to = '$user_to' AND user_from='$user_from'");
+		if(mysqli_num_rows($check_request_query) > 0){
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 

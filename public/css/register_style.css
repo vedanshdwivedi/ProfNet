@@ -52,18 +52,22 @@
 html,
 body {
   height: 100%;
+  
 }
 body {
   margin: 0px;
   padding: 0;
   color: #fff;
   background-color: white;
-  background: url("../images/img1.jpg");
+  background: url("../images/4.jpg");
   background-size: cover;
   height: 100vh;
   font-size: 14px;
   position: relative;
   font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  background-size:     cover;                      /* <------ */
+  background-repeat:   no-repeat;
+  background-position: center center; 
 }
 
 .images .logo {

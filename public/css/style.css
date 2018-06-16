@@ -288,10 +288,10 @@ textarea:focus{
 
 
 .profile_left img{
+	padding-top: 80px;
 	min-width: 80px;
 	width: 55%;
 	margin: 20px;
-	border: 5px solid #274d98;
 	border-radius: 100px;
 }
 

@@ -1,6 +1,4 @@
 <?php require_once("../resources/includes/index_header.php"); 
-include("../resources/includes/classes/User.php");
-include("../resources/includes/classes/Post.php");
 if(isset($_GET['profile_username'])){
 	$username = $_GET['profile_username'];
 	$user_details_query = query("SELECT * FROM user_login WHERE username='$username'");

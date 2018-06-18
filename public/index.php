@@ -1,8 +1,5 @@
 <?php 
 include("../resources/includes/index_header.php");
-include("../resources/includes/classes/User.php");
-include("../resources/includes/classes/Post.php");
-
 
 if(isset($_POST['post'])){
 	$post = new Post($connection, $userLoggedIn);

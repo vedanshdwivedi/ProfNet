@@ -1,3 +1,8 @@
+<?php
+
+include("../resources/includes/classes/User.php");
+include("../resources/includes/classes/Post.php");
+?>
 <!DOCTYPE html>
 <html lang="en" >
 

@@ -1,4 +1,7 @@
-<?php require_once("../resources/config.php"); ?>
+<?php require_once("../resources/config.php"); 
+
+include("../resources/includes/classes/User.php");
+include("../resources/includes/classes/Post.php");?>
 <?php
 	
 	if(isset($_SESSION["username"])){
@@ -44,7 +47,7 @@
 		<a href="#">
 			<i class="fa fa-bell fa-2x"></i>
 		</a>
-		<a href="#">
+		<a href="requests.php">
 			<i class="fa fa-users fa-2x"></i>
 		</a>
 		<a href="../About Us/about.html">

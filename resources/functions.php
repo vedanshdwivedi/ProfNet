@@ -76,7 +76,7 @@ function username($f,$l){
 function def_pic(){
 	$rand = rand(1,16);
 	switch ($rand) {
-		case 1: $a = "images/profile_pics/default/head_alizrin.png";
+		case 1: $a = "images/profile_pics/default/head_alizarin.png";
 					 break;
 		case 2: $a = "images/profile_pics/default/head_amethyst.png";
 					 break;

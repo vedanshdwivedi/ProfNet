@@ -362,3 +362,21 @@ textarea:focus{
     padding: 10px;
     border: 2px solid #4267B2;
 }
+
+.delete_button {
+	width: 22px;
+    height: 22px;
+    padding: 0px;
+    float: right;
+    right: -15px;
+    border-radius: 13px;
+    position: relative;
+}
+
+.profile_main_column {
+	min-width: 675px;
+	float: left;
+	width: 70%;
+	z-index: -1;
+	margin-top: 29px;
+}

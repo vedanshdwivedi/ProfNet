@@ -67,8 +67,9 @@ if(isset($_POST['respond_request'])){
 		</form>
 		<input type="submit" class="deep_blue" data-toggle="modal" data-target="#post_form" value="Post Something">
 	</div>
-	<div class="main_column column">
-		This is a profile page for <?php echo $username; ?>.
+	<div class="profile_main_column column">
+		<div class="posts_area"></div>
+		<img id="loading" src="images/icons/loading.gif">
 
 	</div>
 
@@ -104,6 +105,67 @@ if(isset($_POST['respond_request'])){
     </div>
   </div>
 </div>
+
+
+<script>
+	var userLoggedIn = '<?php echo $userLoggedIn; ?>';
+	var profileUsername = '<?php echo $username; ?>';
+
+	$(document).ready(function() {
+
+		$('#loading').show();
+
+		//Original ajax request for loading first posts 
+		$.ajax({
+			url: "../resources/includes/ajax_load_profile_posts.php",
+			type: "POST",
+			data: "page=1&userLoggedIn=" + userLoggedIn + "&profileUsername=" + profileUsername,
+			cache:false,
+
+			success: function(data) {
+				$('#loading').hide();
+				$('.posts_area').html(data);
+			}
+		});
+
+		$(window).scroll(function() {
+			var height = $('.posts_area').height(); //Div containing posts
+			var scroll_top = $(this).scrollTop();
+			var page = $('.posts_area').find('.nextPage').val();
+			var noMorePosts = $('.posts_area').find('.noMorePosts').val();
+			//$('#loading').show();
+			console.log(page);
+
+            
+			if((document.body.scrollHeight == (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop) + window.innerHeight) && noMorePosts == 'false') {
+				$('#loading').show();
+
+
+				var ajaxReq = $.ajax({
+					url: "../resources/includes/ajax_load_profile_posts.php",
+					type: "POST",
+					data: "page=" + page + "&userLoggedIn=" + userLoggedIn + "&profileUsername=" + profileUsername,
+					cache:false,
+
+					success: function(response) {
+						$('.posts_area').find('.nextPage').remove(); //Removes current .nextpage 
+						$('.posts_area').find('.noMorePosts').remove(); //Removes current .nextpage 
+
+						$('#loading').hide();
+						$('.posts_area').append(response);
+					}
+				});
+
+			} //End if 
+
+			return false;
+
+		}); //End (window).scroll(function())
+
+
+	});
+
+	</script>
 
 
 </div><!--wrapper div-->

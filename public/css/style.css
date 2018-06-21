@@ -380,3 +380,7 @@ textarea:focus{
 	z-index: -1;
 	margin-top: 29px;
 }
+
+.profile_info_bottom {
+	margin: 10px 0 0 7px;
+}

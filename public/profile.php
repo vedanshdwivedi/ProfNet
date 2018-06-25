@@ -4,6 +4,11 @@ if(isset($_GET['profile_username'])){
 	$user_details_query = query("SELECT * FROM user_login WHERE username='$username'");
 	$user_array = fetch($user_details_query);
 	$num_friends = (substr_count($user_array['friend_array'], ",")) - 1;
+	if($userLoggedIn == $username){
+		$href = "upload.php";
+	}else{
+		$href = "profile.php?profile_username=".$username;
+	}
 }
 
 if(isset($_POST['remove_friend'])){
@@ -32,9 +37,9 @@ if(isset($_POST['respond_request'])){
 		}
 	</style>
 	<div class="profile_left">
-	<a href="upload.php">
+	<a href="<?php echo $href; ?>">
 		<img src="<?php echo $user_array['profile_pic']; ?>">
-		</a>
+	</a>
 		<div class="profile_info">
 			<p><?php echo "Posts : " . $user_array["num_posts"];  ?></p>
 			<p><?php echo "Likes : " . $user_array["num_likes"];  ?></p>

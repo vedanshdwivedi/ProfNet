@@ -32,7 +32,9 @@ if(isset($_POST['respond_request'])){
 		}
 	</style>
 	<div class="profile_left">
+	<a href="upload.php">
 		<img src="<?php echo $user_array['profile_pic']; ?>">
+		</a>
 		<div class="profile_info">
 			<p><?php echo "Posts : " . $user_array["num_posts"];  ?></p>
 			<p><?php echo "Likes : " . $user_array["num_likes"];  ?></p>
